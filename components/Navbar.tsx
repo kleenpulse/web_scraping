@@ -23,7 +23,7 @@ const navIcons = [
 export const Navbar = () => {
 	return (
 		<header className="w-full relative z-30 ">
-			<nav className="nav">
+			<nav className="flex justify-between items-center px-6 md:px-20 py-4 w-full ">
 				<Link href="/" className="flex items-center gap-1 ">
 					<Image
 						src="/assets/icons/logo.svg"

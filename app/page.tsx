@@ -39,7 +39,7 @@ export default async function Home() {
 
 			<section className="trending-section relative z-30">
 				<h2 className="text-primary text-[32px] font-semibold">Trending</h2>
-				<div className="flex flex-wrap-reverse gap-x-8 gap-y-16 text-gray-300">
+				<div className="flex flex-wrap gap-x-8 gap-y-16 text-gray-300 justify-center">
 					{allProducts?.map((product) => (
 						<ProductCard key={product._id} product={product} />
 					))}

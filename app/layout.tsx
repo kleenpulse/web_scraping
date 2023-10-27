@@ -22,8 +22,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} ${spaceGrotesk.className} solar`}>
-				<main className="max-w-10xl mx-auto w-full">
+			<body className={`${inter.className} ${spaceGrotesk.className} `}>
+				<main className="max-w-10xl mx-auto w-full ">
 					<Navbar />
 
 					{children}

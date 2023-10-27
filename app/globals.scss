@@ -9,13 +9,13 @@
 	scroll-behavior: smooth;
 }
 
-@layer base {
-	body {
-		@apply font-inter;
-		background: #100b20;
-		position: relative;
+body {
+	@apply font-inter;
+	background: #100b20;
+	position: relative;
 
-		overflow-x: hidden !important;
+	overflow: hidden !important;
+	@media screen and (min-width: 450px) {
 		&::after {
 			content: "";
 			position: absolute;
@@ -27,19 +27,21 @@
 			filter: blur(120px);
 			background: radial-gradient(circle, rgb(99, 23, 171) 10%, #150e28 100%);
 			background-blend-mode: hard-light;
+			overflow: hidden;
 		}
-		&::before {
-			content: "";
-			position: fixed;
-			bottom: 0;
-			right: -10%;
-			width: 500px;
-			height: 500px;
-			border-radius: 50%;
-			filter: blur(150px);
-			background: radial-gradient(circle, rgb(80, 15, 141) 10%, #150e28 100%);
-			background-blend-mode: hard-light;
-		}
+	}
+	&::before {
+		content: "";
+		position: fixed;
+		bottom: 0;
+		right: -10%;
+		width: 500px;
+		height: 500px;
+		overflow: hidden;
+		border-radius: 50%;
+		filter: blur(150px);
+		background: radial-gradient(circle, rgb(80, 15, 141) 10%, #150e28 100%);
+		background-blend-mode: hard-light;
 	}
 }
 
@@ -132,11 +134,6 @@
 
 	.dialog-btn {
 		@apply px-5 py-3 text-white text-base font-semibold border border-secondary bg-secondary rounded-lg mt-8;
-	}
-
-	/* NAVBAR */
-	.nav {
-		@apply flex justify-between items-center px-6 md:px-20 py-4 w-full;
 	}
 
 	/* PRICE INFO */
