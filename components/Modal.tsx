@@ -86,7 +86,11 @@ const Modal = () => {
 						</p>
 					</div>
 
-					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
+					<form
+						onSubmit={handleSubmit}
+						className="flex flex-col gap-4"
+						autoComplete="off"
+					>
 						<label htmlFor="email">
 							Email address
 							<div className="flex p-3 py-4 w-full rounded-xl bg-primary/10 text-white mt-4 gap-4">
@@ -97,6 +101,7 @@ const Modal = () => {
 									alt="logo"
 								/>
 								<input
+									autoComplete="off"
 									type="email"
 									id="email"
 									className=" outline-none w-full bg-transparent"
