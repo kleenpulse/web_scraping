@@ -8,7 +8,60 @@
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 }
+.show-btn {
+	opacity: 0;
+	animation: show-btn 0.7s 0.7s ease forwards;
 
+	@keyframes show-btn {
+		100% {
+			opacity: 1;
+		}
+	}
+}
+
+.hide-overlay {
+	opacity: 1;
+	display: block;
+	background: rgb(0 0 0 / 0.7);
+	animation: hide-overlay 1s ease forwards;
+
+	@keyframes hide-overlay {
+		50% {
+			opacity: 0.5;
+		}
+		100% {
+			background: rgb(0 0 0 / 0);
+			opacity: 0;
+			display: none;
+		}
+	}
+}
+
+.hide-modal {
+	opacity: 1;
+	display: block;
+
+	animation: modal 0.4s ease forwards;
+
+	@keyframes modal {
+		0% {
+			opacity: 1;
+			transform: translateY(0px) translateX(-50%);
+			left: 50%;
+		}
+		50% {
+			transform: translateY(30px) translateX(-50%);
+			left: 50%;
+		}
+
+		100% {
+			transform: translateY(50px) translateX(-50%);
+			left: 50%;
+			opacity: 0;
+			display: none;
+		}
+	}
+}
 body {
 	@apply font-inter;
 	background: #100b20;

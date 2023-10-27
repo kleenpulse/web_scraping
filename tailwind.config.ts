@@ -9,8 +9,8 @@ module.exports = {
 		extend: {
 			animation: {
 				shimmer: "shimmer 1.5s infinite",
-				slideLeft: "slideLeft 1s ease forwards",
-				slideDown: "slideDown 1s ease forwards",
+				modalOverlay: "modalOverlay 0.4s linear forwards",
+				slideDown: "slideDown 0.5s 0.2s ease forwards",
 				loadspin: "loadspin 1.5s linear infinite",
 			},
 			keyframes: {
@@ -24,14 +24,14 @@ module.exports = {
 						transform: "translateX(100%)",
 					},
 				},
-				slideLeft: {
+				modalOverlay: {
 					"50%": {
+						background: "rgba(0, 0, 0, 0.4)",
 						opacity: "0.7",
-						transform: "translateX(0)",
 					},
 					"100%": {
-						transform: "translateX(0)",
 						opacity: "1",
+						background: "rgba(0, 0, 0, 0.6)",
 					},
 				},
 				slideDown: {
@@ -76,9 +76,7 @@ module.exports = {
 			boxShadow: {
 				xs: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
 			},
-			maxWidth: {
-				"10xl": "1440px",
-			},
+
 			fontFamily: {
 				inter: ["Inter", "sans-serif"],
 				spaceGrotesk: ["Space Grotesk", "sans-serif"],
