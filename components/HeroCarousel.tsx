@@ -15,7 +15,7 @@ const heroImages = [
 
 const HeroCarousel = () => {
 	return (
-		<div className="relative sm:px-10 py-5 sm:pt-20 pb-5 max-w-[560px] h-[700px] max-sm:w-[400px] max-sm:h-[500px] w-full bg-transparent border border-primary/70 max-sm:scale-90 rounded-[30px] mx-auto select-none">
+		<div className="relative sm:px-10 py-5 sm:pt-20 pb-5 max-w-[560px] h-[700px] max-sm:max-w-[400px] max-sm:h-[500px] w-full bg-transparent border border-primary/70 max-sm:scale-90 rounded-[30px] mx-auto select-none">
 			<Carousel
 				showThumbs={false}
 				autoPlay
@@ -33,7 +33,7 @@ const HeroCarousel = () => {
 						alt={image.alt}
 						width={484}
 						height={484}
-						className="object-contain max-sm:w-[400px] max-sm:h-[400px]"
+						className="object-contain max-sm:max-w-[400px] max-sm:h-[400px]"
 					/>
 				))}
 			</Carousel>

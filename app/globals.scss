@@ -14,8 +14,8 @@ body {
 	background: #100b20;
 	position: relative;
 
-	overflow: hidden !important;
-	@media screen and (min-width: 450px) {
+	overflow-x: hidden !important;
+	@media screen and (min-width: 650px) {
 		&::after {
 			content: "";
 			position: absolute;
@@ -51,7 +51,7 @@ body {
 	}
 
 	.head-text {
-		@apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-200;
+		@apply mt-4 text-4xl sm:text-6xl sm:leading-[72px] font-bold tracking-[-1.2px] text-gray-200;
 	}
 
 	.small-text {
