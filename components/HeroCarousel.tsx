@@ -29,7 +29,7 @@ const HeroCarousel = () => {
 				emulateTouch
 			>
 				{heroImages.map((image) => (
-					<>
+					<div className="">
 						<Image
 							key={image.id}
 							src={image.imgUrl}
@@ -40,11 +40,11 @@ const HeroCarousel = () => {
 							onLoad={() => setIsLoading(false)}
 						/>
 						{isLoading && (
-							<div className="flex items-center justify-center h-[484px] scale-150">
+							<div className="flex items-center justify-center h-[484px] scale-150 -mb-10">
 								<LoadingSpinner />
 							</div>
 						)}
-					</>
+					</div>
 				))}
 			</Carousel>
 			<Image

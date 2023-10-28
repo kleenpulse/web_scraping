@@ -1,13 +1,13 @@
 import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 type Props = {
 	product: Product;
 };
 
 const ProductCard = ({ product }: Props) => {
+	// const [isLoading, setIsLoading] = useState(true);
 	return (
 		<Link href={`/products/${product._id}`} className="product-card">
 			<div className="product-card_img-container bg-white">
