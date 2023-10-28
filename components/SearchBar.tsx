@@ -48,7 +48,7 @@ const SearchBar = () => {
 		>
 			<input
 				type="text"
-				placeholder="Enter product link....."
+				placeholder="Amazon product link....."
 				value={searchTerm}
 				className="flex-1 min-w-[200px] w-full p-3 border border-primary/80 rounded-lg shadow-xs text-base text-white focus:outline-none bg-transparent"
 				onChange={(e) => setSearchTerm(e.target.value.toLowerCase().trim())}
