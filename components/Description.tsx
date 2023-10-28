@@ -10,8 +10,8 @@ const Description = ({ desc }: { desc?: string }) => {
 		<>
 			<div className="">
 				<p className="pt-4 flex flex-col text-gray-400 px-2 sm:px-4 tracking-wider leading-6 sm:leading-8 xl:hidden">
-					{!isShowMore && descText && descText?.length > 15
-						? `${descText?.slice(0, 15)}...`
+					{!isShowMore && descText && descText?.length > 12
+						? `${descText?.slice(0, 12)}...`
 						: descText}
 					<button
 						className="text-primary font-semibold"
