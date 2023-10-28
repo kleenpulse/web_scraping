@@ -106,7 +106,7 @@ body {
 
 @layer utilities {
 	.btn {
-		@apply py-4 px-4 bg-primary/20  rounded-[30px] text-primary sm:text-2xl text-lg font-semibold;
+		@apply py-4 px-4 bg-primary/20  rounded-lg text-primary sm:text-2xl text-lg font-semibold;
 	}
 
 	.head-text {

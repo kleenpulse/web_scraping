@@ -43,7 +43,7 @@ const Modal = ({ productId }: { productId: string }) => {
 		<>
 			{!isOpen && (
 				<button
-					className="show-btn btn hover:bg-primary/40 transition-all duration-300 active:scale-75"
+					className="show-btn btn hover:bg-primary/40 transition-all duration-300 active:scale-75 w-full "
 					onClick={() => setIsOpen(true)}
 				>
 					Track Product

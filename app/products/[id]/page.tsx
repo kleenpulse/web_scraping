@@ -124,7 +124,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 						</div>
 					</div>
 					<div className="my-7 flex flex-col gap-5 w-full justify-center items-center">
-						<div className="sm:flex gap-5 sm:flex-wrap grid grid-cols-2 w-full justify-center place-items-center place-content-center ">
+						<div className="sm:flex gap-5 sm:flex-wrap grid grid-cols-2 w-full justify-center  place-content-center ">
 							<PriceInfoCard
 								title="Current Price"
 								iconSrc="/assets/icons/price-tag.svg"
@@ -159,8 +159,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 								borderColor="border-green-400"
 							/>
 						</div>
+						<Modal productId={id} />
 					</div>
-					<Modal productId={id} />
 				</div>
 			</div>
 			<div className="flex flex-col gap-16  w-full ">
