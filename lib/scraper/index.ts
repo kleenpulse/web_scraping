@@ -4,8 +4,8 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import { extractCurrency, extractDescription, extractPrice } from "../utils";
 
-export async function scrapeAmazonProduct(productUrl: string) {
-	if (!productUrl) return;
+export async function scrapeAmazonProduct(url: string) {
+	if (!url) return;
 
 	// curl --proxy brd.superproxy.io:22225 --proxy-user brd-customer-hl_fcdc379a-zone-unblocker:v1dx83te9bl7 -k https://lumtest.com/myip.json
 
@@ -24,7 +24,7 @@ export async function scrapeAmazonProduct(productUrl: string) {
 	};
 
 	try {
-		const res = await axios.get(productUrl, options);
+		const res = await axios.get(url, options);
 		const $ = cheerio.load(res.data);
 
 		// Extract the product title
@@ -61,7 +61,7 @@ export async function scrapeAmazonProduct(productUrl: string) {
 		const description = extractDescription($);
 
 		const data = {
-			productUrl,
+			url,
 			currency: currency || "$",
 			image: imageUrls[0],
 			title,
@@ -78,7 +78,7 @@ export async function scrapeAmazonProduct(productUrl: string) {
 				"Category",
 			lowestPrice: Number(currPrice) || Number(originalPrice),
 			highestPrice: Number(originalPrice) || Number(currPrice),
-			average: Number(currPrice) || Number(originalPrice),
+			averagePrice: Number(currPrice) || Number(originalPrice),
 		};
 
 		return data;

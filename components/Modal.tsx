@@ -2,13 +2,22 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
+import { addUserEmailToProduct } from "@/lib/actions";
 
-const Modal = () => {
+const Modal = ({ productId }: { productId: string }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [email, setEmail] = useState("");
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		setIsSubmitting(true);
+
+		await addUserEmailToProduct(productId, email);
+
+		setIsOpen(false);
+		setIsSubmitting(false);
 	};
 
 	useEffect(() => {
@@ -20,6 +29,7 @@ const Modal = () => {
 		const handleKeyDown = (e: KeyboardEvent) => {
 			if (e.key === "Escape") {
 				setIsOpen(false);
+				setIsSubmitting(false);
 			}
 		};
 
@@ -32,8 +42,11 @@ const Modal = () => {
 	return (
 		<>
 			{!isOpen && (
-				<button className="show-btn" onClick={() => setIsOpen(true)}>
-					Track
+				<button
+					className="show-btn btn hover:bg-primary/40 transition-all duration-300 active:scale-75"
+					onClick={() => setIsOpen(true)}
+				>
+					Track Product
 				</button>
 			)}
 
@@ -104,7 +117,7 @@ const Modal = () => {
 									autoComplete="off"
 									type="email"
 									id="email"
-									className=" outline-none w-full bg-transparent"
+									className=" outline-none w-full bg-transparent "
 									placeholder="Enter your email"
 									required
 									pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
@@ -117,12 +130,20 @@ const Modal = () => {
 						</label>
 						<button
 							disabled={
-								!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+								!email.match(
+									/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+								) || isSubmitting
 							}
 							type="submit"
-							className="mt-4 bg-primary/10 rounded-xl py-4 text-primary font-medium text-lg sm:text-xl hover:bg-primary/20 transition-all duration-300 active:scale-90 disabled:!cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary/10 disabled:active:scale-100"
+							className="mt-4 bg-primary/10 rounded-xl py-4 text-primary font-medium text-lg sm:text-xl hover:bg-primary/20 transition-all duration-300 active:scale-90 disabled:!cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary/10 disabled:active:scale-100 relative"
 						>
-							Start Tracking!
+							{isSubmitting ? "Submitting..." : "Start Tracking!"}
+
+							{isSubmitting && (
+								<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !opacity-100 z-50 ">
+									<LoadingSpinner />
+								</div>
+							)}
 						</button>
 					</form>
 				</div>
