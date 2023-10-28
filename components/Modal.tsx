@@ -68,7 +68,7 @@ const Modal = ({ productId }: { productId: string }) => {
 			>
 				<div
 					role="dialog"
-					className="flex flex-col bg-primary/10 backdrop-blur-xl min-[550px]:p-6 p-3 text-white w-[90%] min-[550px]:w-[500px]  rounded-xl animate-slideDown translate-y-10 opacity-0 gap-5 "
+					className="flex flex-col bg-primary/10 xl:bg-purple-950/70 backdrop-blur-xl min-[550px]:p-6 p-3 text-white w-[90%] min-[550px]:w-[500px]  rounded-xl animate-slideDown translate-y-10 opacity-0 gap-5 "
 				>
 					<div className="w-full flex justify-between items-center">
 						<Image

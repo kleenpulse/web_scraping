@@ -1,3 +1,4 @@
+import Description from "@/components/Description";
 import Modal from "@/components/Modal";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
@@ -21,20 +22,22 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 	const similarProducts = await getSimilarProducts(id);
 
 	return (
-		<div className="relative z-30 text-white product-container">
-			<div className="flex flex-col gap-28 xl:flex-row ">
-				<div className="product-image ">
-					<Image
-						src={product.image}
-						alt={product.title}
-						width={680}
-						height={400}
-						className="mx-auto rounded-xl md:rounded-2xl max-sm:w-fit"
-					/>
+		<div className="relative z-30 text-white flex flex-col gap-16 flex-wrap sm:px-6 md:px-20 lg:py-16 xl:py-24 py-8    ">
+			<div className="flex flex-col xl:gap-28 gap-20 xl:flex-row items-center justify-center">
+				<div className="flex w-full xl:w-1/2 justify-center  xl:pb-16 ">
+					<div className="xl:flex-grow  max-w-full   rounded-[17px] bg-white">
+						<Image
+							src={product.image}
+							alt={product.title}
+							width={680}
+							height={400}
+							className="rounded-xl md:rounded-2xl max-xl:max-h-[600px] max-xl:object-contain max-sm:w-full max-sm:min-w-[300px]"
+						/>
+					</div>
 				</div>
 
-				<div className="flex flex-col flex-1">
-					<div className="flex justify-between items-start gap-5 flex-wrap pb-6">
+				<div className="flex flex-col sm:flex-1 px-2 sm:px-0 ">
+					<div className="flex justify-between items-start gap-5 flex-wrap pb-6 w-full">
 						<div className="flex flex-col gap-3">
 							<p className="sm:text-2xl font-medium text-gray-200">
 								{product.title}
@@ -120,8 +123,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 							</p>
 						</div>
 					</div>
-					<div className="my-7 flex flex-col gap-5">
-						<div className="sm:flex gap-5 sm:flex-wrap grid grid-cols-1">
+					<div className="my-7 flex flex-col gap-5 w-full justify-center items-center">
+						<div className="sm:flex gap-5 sm:flex-wrap grid grid-cols-2 w-full justify-center place-items-center place-content-center ">
 							<PriceInfoCard
 								title="Current Price"
 								iconSrc="/assets/icons/price-tag.svg"
@@ -160,18 +163,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 					<Modal productId={id} />
 				</div>
 			</div>
-			<div className="flex flex-col gap-16   ">
-				<div className="flex flex-col gap-5 ">
-					<h3 className="text-xl sm:text-2xl xl:text-3xl font-medium ">
+			<div className="flex flex-col gap-16  w-full ">
+				<div className="flex flex-col gap-5 w-full">
+					<h3 className="text-xl sm:text-2xl xl:text-3xl font-medium pl-2">
 						Product Description
 					</h3>
-					<div
-						className="h-full max-h-[400px] lg:max-h-[600px] overflow-hidden overflow-y-scroll "
-						id="description"
-					>
-						<p className="pt-4 flex flex-col gap-2 text-gray-400 px-2 sm:px-4 tracking-wider leading-6 sm:leading-8">
-							{product?.description?.split("\n")}
-						</p>
+					<div className="h-full ">
+						<Description desc={product.description} />
 					</div>
 
 					<Link
@@ -190,7 +188,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 			</div>
 
 			{similarProducts && similarProducts?.length > 0 && (
-				<div className="py-14 flex flex-col gap-2 w-full">
+				<div className="py-14 flex flex-col gap-2 w-full px-2">
 					<p className="text-xl font-medium xl:text-3xl">Similar Products</p>
 
 					<div className="flex flex-wrap gap-10 mt-7 w-full">

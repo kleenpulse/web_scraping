@@ -9,7 +9,7 @@ export default async function Home() {
 
 	return (
 		<>
-			<section className="px-6 md:px-20 py-24 relative z-30">
+			<section className="px-6 md:px-20 2xl:py-24 py-10 relative z-30">
 				<div className="flex max-xl:flex-col gap-16">
 					<div className="flex flex-col justify-center">
 						<p className="small-text">

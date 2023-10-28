@@ -98,6 +98,12 @@ body {
 	}
 }
 
+@media screen and (max-height: 770px) {
+	.height-hero {
+		transform: scale(0.8);
+	}
+}
+
 @layer utilities {
 	.btn {
 		@apply py-4 px-4 bg-primary/20  rounded-[30px] text-primary sm:text-2xl text-lg font-semibold;
@@ -140,9 +146,6 @@ body {
 	}
 
 	/* PRODUCT DETAILS PAGE STYLES */
-	.product-container {
-		@apply flex flex-col gap-16 flex-wrap px-6 md:px-20 lg:py-24 py-8;
-	}
 
 	.product-image {
 		@apply flex-grow xl:max-w-[50%] max-w-full lg:py-16  rounded-[17px];
@@ -191,7 +194,7 @@ body {
 
 	/* PRICE INFO */
 	.price-info_card {
-		@apply flex-1 min-w-[200px] flex flex-col gap-2 border-l-[3px] rounded-10  px-5 py-4 bg-primary/10;
+		@apply flex-1 min-w-[150px] sm:min-w-[200px] flex flex-col gap-2 border-l-[3px] rounded-10  px-5 py-4 bg-primary/10;
 	}
 
 	/* PRODUCT CARD */
@@ -220,13 +223,4 @@ body {
 ::selection {
 	background: rgba(210, 0, 200, 0.592);
 	color: #faf0f0;
-}
-
-#description::-webkit-scrollbar {
-	width: 4px;
-}
-
-#description::-webkit-scrollbar-thumb {
-	background: #c100d298;
-	border-radius: 10px;
 }

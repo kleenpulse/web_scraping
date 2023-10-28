@@ -57,7 +57,7 @@ const SearchBar = () => {
 			<button
 				disabled={searchTerm === "" || isLoading}
 				type="submit"
-				className="bg-transparent border-primary/80 border  rounded-lg shadow-xs px-5 py-3 text-primary text-base font-semibold hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 transition-all duration-700 relative"
+				className="bg-primary sm:bg-transparent border-primary/80 border  rounded-lg shadow-xs px-5 py-3 text-white sm:text-primary text-base font-semibold hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 transition-all duration-700 relative"
 			>
 				{isLoading ? "Searching..." : "Search"}
 				{isLoading && (
