@@ -174,7 +174,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
 					<Link
 						href="/"
-						className="btn w-fit flex items-center mx-auto justify-center gap-3 min-w-[200px] sm:min-w-[250px] "
+						className="btn w-fit  items-center mx-auto justify-center gap-3 min-w-[200px] sm:min-w-[250px] hidden "
 					>
 						<Image
 							src="/assets/icons/bag.svg"
@@ -188,7 +188,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 			</div>
 
 			{similarProducts && similarProducts?.length > 0 && (
-				<div className="py-14 flex flex-col gap-2 w-full px-2">
+				<div className="pb-14 pt-10 flex flex-col gap-2 w-full px-2">
 					<p className="text-xl font-medium xl:text-3xl">Similar Products</p>
 
 					<div className="flex flex-wrap gap-10 mt-7 w-full">
