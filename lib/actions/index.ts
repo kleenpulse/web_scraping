@@ -7,19 +7,19 @@ import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { User } from "@/types";
 import { generateEmailBody, sendEmail } from "../nodemailer";
 
-export async function scrapeAndStoreProducts(productUrl: string) {
-	if (!productUrl) return;
+export async function scrapeAndStoreProducts(url: string) {
+	if (!url) return;
 
 	try {
 		connectToDB();
-		const scrapedProduct = await scrapeAmazonProduct(productUrl);
+		const scrapedProduct = await scrapeAmazonProduct(url);
 
 		if (!scrapedProduct) return;
 
 		let product = scrapedProduct;
 
 		const extistingProduct = await Product.findOne({
-			url: scrapedProduct.productUrl,
+			url: scrapedProduct.url,
 		});
 
 		if (extistingProduct) {
@@ -39,7 +39,7 @@ export async function scrapeAndStoreProducts(productUrl: string) {
 		}
 
 		const newProduct = await Product.findOneAndUpdate(
-			{ url: scrapedProduct.productUrl },
+			{ url: scrapedProduct.url },
 			product,
 			{ upsert: true, new: true }
 		);
