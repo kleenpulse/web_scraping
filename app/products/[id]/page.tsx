@@ -168,7 +168,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 					<h3 className="text-xl sm:text-2xl xl:text-3xl font-medium pl-2">
 						Product Description
 					</h3>
-					<div className="h-full ">
+					<div className="h-full w-full max-sm:px-1">
 						<Description desc={product.description} />
 					</div>
 
@@ -191,7 +191,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 				<div className="pb-14 pt-10 flex flex-col gap-2 w-full px-2">
 					<p className="text-xl font-medium xl:text-3xl">Similar Products</p>
 
-					<div className="flex flex-wrap 2xl:grid grid-cols-4 gap-10 mt-7 w-full">
+					<div className="flex flex-wrap min-[1440px]:grid grid-cols-4 gap-10 mt-7 w-full">
 						{similarProducts.map((product) => (
 							<ProductCard key={product._id} product={product} />
 						))}

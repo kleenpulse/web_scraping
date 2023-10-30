@@ -203,11 +203,11 @@ body {
 	}
 
 	.product-card_img-container {
-		@apply flex-1 relative flex flex-col gap-5 p-4 rounded-md;
+		@apply max-h-[270px] flex-1 relative flex flex-col gap-5 p-4 rounded-md;
 	}
 
 	.product-card_img {
-		@apply max-h-[250px] object-contain w-full h-full bg-transparent;
+		@apply object-contain w-full h-full bg-transparent;
 	}
 }
 

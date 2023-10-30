@@ -43,8 +43,12 @@ export async function scrapeAndStoreProducts(url: string) {
 			product,
 			{ upsert: true, new: true }
 		);
-
+		const data = {
+			isImage: product.image,
+		};
 		revalidatePath(`/product/${newProduct._id}`);
+
+		return data;
 	} catch (error: any) {
 		throw new Error(`Failed to create/update product: ${error.message}`);
 	}
